@@ -1,0 +1,236 @@
+body{
+	background-image: url(../../assets/img/bg.jpg);
+}
+#main{
+	position: fixed;
+	overflow: hidden;
+	width: 1020px;
+	height: 765px;
+	background: url(../../assets/img/main-bg.jpg) no-repeat #2a1a0d;
+	top: 50%;
+	left: 50%;
+	margin: -382px 0 0 -510px;
+	border: 3px solid #2a1a0d;
+}
+
+.window{
+	position: fixed;
+	overflow: hidden;
+	width: 816px;
+	height: 616px;
+	background: url(../../assets/img/bg_window.png) repeat;
+	top: 50%;
+	left: 50%;
+	margin: -308px 0 0 -408px;
+	border: 5px solid #647fda;
+	border-radius: 5px;
+}
+
+/*	8888888888888     8888888888888b     d8888888888888888b    88888888888888 .d8888b.  
+	888       888     888       8888b   d8888888       8888b   888    888    d88P  Y88b 
+	888       888     888       88888b.d88888888       88888b  888    888    Y88b.      
+	8888888   888     8888888   888Y88888P8888888888   888Y88b 888    888     "Y888b.   
+	888       888     888       888 Y888P 888888       888 Y88b888    888        "Y88b. 
+	888       888     888       888  Y8P  888888       888  Y88888    888          "888 
+	888       888     888       888   "   888888       888   Y8888    888    Y88b  d88P 
+	8888888888888888888888888888888       8888888888888888    Y888    888     "Y8888P"  
+	                                                                                    
+	                                                                                    
+	                                                                                    */
+.element{
+	position: absolute;
+	display: block;
+	background-repeat: no-repeat;
+}
+.elements{
+	position: absolute;
+	display: block;
+}
+
+#tv{
+	background-image: url(../../assets/img/tv.png);
+	width: 193px;
+	height: 330px;
+	top:170px;
+	left: -3px;
+}
+
+#door{
+	background-image: url(../../assets/img/door.png);
+	width: 216px;
+	height: 326px;
+	top: 40px;
+	left: 40px;
+}
+
+#calendar{
+	background-image: url(../../assets/img/calendar.png);
+	width: 145px;
+	height: 160px;
+	top: 30px;
+	left: 370px;
+}
+
+#table{
+	top: 220px;
+	right: 170px;
+}
+#phone{
+	background-image: url(../../assets/img/phone.png);
+	width: 127px;
+	height: 134px;
+	top: 10px;
+	right: 10px;
+}
+
+#frame{
+	background-image: url(../../assets/img/fotoframe.png);
+	width: 112px;
+	height: 132px;
+	top: 10px;
+	left: 10px;
+}
+
+#portraits{
+	top: 30px;
+	right: 340px;
+}
+
+#man{
+	background-image: url(../../assets/img/man.png);
+	width: 139px;
+	height: 162px;
+	top: 0px;
+	left: 0px;
+	/*transition:all 2s ease-in-out;
+	perspective: 800px;
+	perspective-origin: 50% 100px;
+	*/
+	-webkit-transform-origin: center top;
+	-webkit-animation-name: example;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+   -webkit-animation-delay: 0;             /* 0 is the default */
+   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
+   -webkit-animation-direction: alternate;  /* normal is the default */
+   	transform-origin: center top;
+    animation-name: example;
+   animation-duration: 2s;
+   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+   animation-delay: 0;             /* 0 is the default */
+   animation-iteration-count: infinite;    /* 1 is the default */
+   animation-direction: alternate;  /* normal is the default */
+}
+#man:hover{
+	/*transform:rotateZ(20deg);*/
+}
+#woman{
+	background-image: url(../../assets/img/woman.png);
+	width: 139px;
+	height: 162px;
+	top: 0px;
+	left: 130px;
+	-webkit-transform-origin: center top;
+	transform-origin: center top;
+	-webkit-animation-name: example;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+   -webkit-animation-delay: 1s;             /* 0 is the default */
+   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
+   -webkit-animation-direction: alternate;  /* normal is the default */
+   animation-name: example;
+   animation-duration: 2s;
+   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+   animation-delay: 1s;             /* 0 is the default */
+   animation-iteration-count: infinite;    /* 1 is the default */
+   animation-direction: alternate;  /* normal is the default */
+}
+@-webkit-keyframes example {
+	0% {-webkit-transform:rotateZ(10deg);}
+	100% {-webkit-transform:rotateZ(-10deg);}
+}
+@-o-keyframes example {
+	0% {-o-transform:rotateZ(10deg);}
+	100% {-o-transform:rotateZ(-10deg);}
+}
+@keyframes example {
+	0% {transform:rotateZ(10deg);}
+	100% {transform:rotateZ(-10deg);}
+}
+
+#player{
+	background-image: url(../../assets/img/.png);
+	width: px;
+	height: px;
+	top: 10px;
+	left: 10px;
+}
+
+#lang{
+	left: 0px;
+	bottom: 95px;
+}
+
+#ru{
+	background-image: url(../../assets/img/ru.png);
+	width: 76px;
+	height: 53px;
+	top: 0px;
+	left: 10px;
+}
+
+#eu{
+	background-image: url(../../assets/img/eu.png);
+	width: 78px;
+	height: 53px;
+	top: 0px;
+	left: 100px;
+}
+
+#el{
+	background-image: url(../../assets/img/.png);
+	width: px;
+	height: px;
+	top: 10px;
+	left: 10px;
+}
+
+/*	8888888888888888888888888888888b     d888 .d8888b.  
+	  888      888    888       8888b   d8888d88P  Y88b 
+	  888      888    888       88888b.d88888Y88b.      
+	  888      888    8888888   888Y88888P888 "Y888b.   
+	  888      888    888       888 Y888P 888    "Y88b. 
+	  888      888    888       888  Y8P  888      "888 
+	  888      888    888       888   "   888Y88b  d88P 
+	8888888    888    8888888888888       888 "Y8888P"  
+	                                                    
+	                                                    
+	                                                    */
+.items{
+	overflow-y: scroll;
+	height: 540px;
+	padding: 10px 20px;
+}
+	.title{
+		color: #2053c9;
+		display: block;
+		text-align: center;
+		
+		margin: 0;
+	}
+	.date{
+		color: #2053c9;
+		font-size: 14px;
+	}
+.items .date{
+	width: 80px;
+	display: inline-block;
+	vertical-align: top;
+}
+.items .preview-body{
+	width: 670px;
+	display: inline-block;
+}
+.items .title{
+	text-align: left;
+}
