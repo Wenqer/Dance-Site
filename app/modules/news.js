@@ -18,7 +18,7 @@ function(app) {
   // Default Collection.
   News.Collection = Backbone.Collection.extend({
     model: News.Model,
-    url: "http://vanya-tanya.com/index2.php?option=com_k2&view=itemlist&layout=category&catid=1&format=json",
+    url: "/index2.php?option=com_k2&view=itemlist&task=category&id=1&format=json",
     parse: function(resp) {
       return resp.items;
     }
@@ -35,15 +35,26 @@ function(app) {
     },
 
     beforeRender: function() {
-      //app.log(this.collection);
       this.collection.each(function(item){
-        //app.log(item.toJSON());
         this.insertView("section", new News.Views.Preview({
           model: item
         }));
       }, this);
     }
 
+  });
+  // News Item View
+  News.Views.Item = Backbone.View.extend({
+      template: "news/item",
+      className: "window",
+  
+      initialize: {
+        //this.collection.on("reset", this.)
+      },
+  
+      serialize: function() {
+        //return this.model.toJSON();
+      }
   });
   // preview News
   News.Views.Preview = Backbone.View.extend({
@@ -69,6 +80,46 @@ function(app) {
 
       beforeRender: function() {
        //app.log(this.model.toJSON());
+      }
+  });
+
+
+  // News Window View
+  News.Views.Window = Backbone.View.extend({
+      template: "news/window",
+
+      className: "window-inner",
+  
+      initialize: function() {
+          this.collection.on('reset', this.render, this);
+      },
+  
+      beforeRender: function() {
+        var collection = new Backbone.Collection(this.collection.first(3));
+          collection.each(function(item) {
+            this.insertView("ul", new News.Views.WindowItem({
+              model: item
+            }));
+          }, this);
+      }
+  });
+
+  // News Window Item View
+  News.Views.WindowItem = Backbone.View.extend({
+    
+      template: "news/windowItem",
+
+      tagName: "li",
+
+      events: {
+      },
+  
+      initialize: function() {
+          this.model.on('change', this.render, this);
+      },
+
+      serialize: function() {
+        return this.model.toJSON();
       }
   });
 

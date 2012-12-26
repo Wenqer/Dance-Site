@@ -1,6 +1,29 @@
 body{
 	background-image: url(../../assets/img/bg.jpg);
 }
+
+a{
+	color: #002053;
+	font-weight: bold;
+}
+
+ul{
+	list-style: none;
+	padding: 0 0 0 10px;
+	font-weight: bold;
+}
+ul li:before {
+	content: '- ';
+}
+ul li a{
+	color: #ce3d11;
+	text-decoration: none;
+	padding-left: 2px;
+}
+ul li a:hover{
+	text-decoration: underline;
+}
+
 #main{
 	position: fixed;
 	overflow: hidden;
@@ -75,125 +98,144 @@ body{
 	top: 220px;
 	right: 170px;
 }
-#phone{
-	background-image: url(../../assets/img/phone.png);
-	width: 127px;
-	height: 134px;
-	top: 10px;
-	right: 10px;
-}
+	#phone{
+		background-image: url(../../assets/img/phone.png);
+		width: 127px;
+		height: 134px;
+		top: 10px;
+		right: 10px;
+	}
 
-#frame{
-	background-image: url(../../assets/img/fotoframe.png);
-	width: 112px;
-	height: 132px;
-	top: 10px;
-	left: 10px;
-}
+	#frame{
+		background-image: url(../../assets/img/fotoframe.png);
+		width: 112px;
+		height: 132px;
+		top: 10px;
+		left: 10px;
+	}
 
 #portraits{
 	top: 30px;
 	right: 340px;
 }
 
-#man{
-	background-image: url(../../assets/img/man.png);
-	width: 139px;
-	height: 162px;
-	top: 0px;
-	left: 0px;
-	/*transition:all 2s ease-in-out;
-	perspective: 800px;
-	perspective-origin: 50% 100px;
-	*/
-	-webkit-transform-origin: center top;
-	-webkit-animation-name: example;
-   -webkit-animation-duration: 2s;
-   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-   -webkit-animation-delay: 0;             /* 0 is the default */
-   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
-   -webkit-animation-direction: alternate;  /* normal is the default */
-   	transform-origin: center top;
-    animation-name: example;
-   animation-duration: 2s;
-   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-   animation-delay: 0;             /* 0 is the default */
-   animation-iteration-count: infinite;    /* 1 is the default */
-   animation-direction: alternate;  /* normal is the default */
-}
-#man:hover{
-	/*transform:rotateZ(20deg);*/
-}
-#woman{
-	background-image: url(../../assets/img/woman.png);
-	width: 139px;
-	height: 162px;
-	top: 0px;
-	left: 130px;
-	-webkit-transform-origin: center top;
-	transform-origin: center top;
-	-webkit-animation-name: example;
-   -webkit-animation-duration: 2s;
-   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-   -webkit-animation-delay: 1s;             /* 0 is the default */
-   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
-   -webkit-animation-direction: alternate;  /* normal is the default */
-   animation-name: example;
-   animation-duration: 2s;
-   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-   animation-delay: 1s;             /* 0 is the default */
-   animation-iteration-count: infinite;    /* 1 is the default */
-   animation-direction: alternate;  /* normal is the default */
-}
-@-webkit-keyframes example {
-	0% {-webkit-transform:rotateZ(10deg);}
-	100% {-webkit-transform:rotateZ(-10deg);}
-}
-@-o-keyframes example {
-	0% {-o-transform:rotateZ(10deg);}
-	100% {-o-transform:rotateZ(-10deg);}
-}
-@keyframes example {
-	0% {transform:rotateZ(10deg);}
-	100% {transform:rotateZ(-10deg);}
-}
+	#man{
+		background-image: url(../../assets/img/man.png);
+		width: 139px;
+		height: 162px;
+		top: 0px;
+		left: 0px;
+		/*transition:all 2s ease-in-out;
+		perspective: 800px;
+		perspective-origin: 50% 100px;
+		*/
+		-webkit-transform-origin: center top;
+		-webkit-animation-name: example;
+	   -webkit-animation-duration: 2s;
+	   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+	   -webkit-animation-delay: 0;             /* 0 is the default */
+	   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
+	   -webkit-animation-direction: alternate;  /* normal is the default */
+	   	transform-origin: center top;
+	    animation-name: example;
+	   animation-duration: 2s;
+	   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+	   animation-delay: 0;             /* 0 is the default */
+	   animation-iteration-count: infinite;    /* 1 is the default */
+	   animation-direction: alternate;  /* normal is the default */
+	}
+	#man:hover{
+		/*transform:rotateZ(20deg);*/
+	}
+	#woman{
+		background-image: url(../../assets/img/woman.png);
+		width: 139px;
+		height: 162px;
+		top: 0px;
+		left: 130px;
+		-webkit-transform-origin: center top;
+		transform-origin: center top;
+		-webkit-animation-name: example;
+	   -webkit-animation-duration: 2s;
+	   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+	   -webkit-animation-delay: 1s;             /* 0 is the default */
+	   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
+	   -webkit-animation-direction: alternate;  /* normal is the default */
+	   animation-name: example;
+	   animation-duration: 2s;
+	   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
+	   animation-delay: 1s;             /* 0 is the default */
+	   animation-iteration-count: infinite;    /* 1 is the default */
+	   animation-direction: alternate;  /* normal is the default */
+	}
+	@-webkit-keyframes example {
+		0% {-webkit-transform:rotateZ(10deg);}
+		100% {-webkit-transform:rotateZ(-10deg);}
+	}
+	@-o-keyframes example {
+		0% {-o-transform:rotateZ(10deg);}
+		100% {-o-transform:rotateZ(-10deg);}
+	}
+	@keyframes example {
+		0% {transform:rotateZ(10deg);}
+		100% {transform:rotateZ(-10deg);}
+	}
 
-#player{
-	background-image: url(../../assets/img/.png);
-	width: px;
-	height: px;
-	top: 10px;
-	left: 10px;
+#main-news{
+	bottom: 35px;
+	right: 0;
 }
+	#player{
+		background-image: url(../../assets/img/player.png);
+		width: 224px;
+		height: 244px;
+		bottom: 0;
+		right: 0;
+	}
+	#news-player{
+		background-image: url(../../assets/img/news-window.png);
+		width: 247px;
+		height: 184px;
+		bottom: 50px;
+		right: 140px;
+	}
+		.window-inner{
+			font-size: 14px;
+    		padding: 10px 30px 10px 20px;
+		}
+		.window-inner li{
+			margin-bottom: 5px;
+		}
 
 #lang{
 	left: 0px;
 	bottom: 95px;
 }
 
-#ru{
-	background-image: url(../../assets/img/ru.png);
-	width: 76px;
-	height: 53px;
-	top: 0px;
-	left: 10px;
+	#ru{
+		background-image: url(../../assets/img/ru.png);
+		width: 76px;
+		height: 53px;
+		top: 0;
+		left: 10px;
+	}
+
+	#eu{
+		background-image: url(../../assets/img/eu.png);
+		width: 78px;
+		height: 53px;
+		top: 0px;
+		left: 100px;
+	}
+
+#logo{
+	background-image: url(../../assets/img/logo.png);
+	width: 410px;
+	height: 414px;
+	top: 210px;
+	left: 220px;
 }
 
-#eu{
-	background-image: url(../../assets/img/eu.png);
-	width: 78px;
-	height: 53px;
-	top: 0px;
-	left: 100px;
-}
-
-#el{
-	background-image: url(../../assets/img/.png);
-	width: px;
-	height: px;
-	top: 10px;
-	left: 10px;
-}
 
 /*	8888888888888888888888888888888b     d888 .d8888b.  
 	  888      888    888       8888b   d8888d88P  Y88b 

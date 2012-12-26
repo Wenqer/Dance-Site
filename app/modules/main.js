@@ -2,11 +2,12 @@
 define([
   // Application.
   "app",
-  "backbone"
+  "backbone",
+  "module/news"
 ],
 
 // Map dependencies from above array.
-function(app) {
+function(app, News) {
 
   // Create a new module.
   var Main = app.module();

@@ -18,14 +18,17 @@ function(app, Main, News) {
       };
 
       _(this).extend(collections);
+      this.news.fetch();
     },
 
     routes: {
       "": "index",
       "news": "showNews",
-      "news/:id": "getNews",
+      "news/:id": "showNewsId",
       "help": "help"
     },
+
+    options: {},
 
     index: function() {
       // Create a layout and associate it with the #main div.
@@ -36,7 +39,16 @@ function(app, Main, News) {
       // Insert the tutorial into the layout.
       // layout.insertView(new Example.Views.Tutorial());
       $("#window").empty();
-      app.useLayout("main").setView(new Main.Views.Index()).render();
+      app.
+      useLayout("main").
+      setView(new Main.Views.Index({
+        views: {
+          "#news-player": new News.Views.Window({
+            collection: this.news
+          })
+        }
+      })).
+      render();
 
 
       
@@ -49,13 +61,42 @@ function(app, Main, News) {
       });
 
 
-      this.news.fetch();
+
       app.useLayout("main").
-      //setView(new Main.Views.Index()).
-      //setView(new News.Views.All()).
+      setView(new Main.Views.Index({
+        views: {
+          "#news-player": new News.Views.Window({
+            collection: this.news
+          })
+        }
+      })).
       render();
 
       windowLayout.setView(new News.Views.All({
+        collection: this.news
+      })).render();
+
+    },
+
+    showNewsId: function(id) {
+      var windowLayout = new Backbone.Layout({
+        el: "#window"
+      });
+
+
+
+      app.useLayout("main").
+      setView(new Main.Views.Index({
+        views: {
+          "#news-player": new News.Views.Window({
+            collection: this.news
+          })
+        }
+      })).
+      render();
+      //app.log(this.news.get(id));
+      this.options.newsid = id;
+      windowLayout.setView(new News.Views.Item({
         collection: this.news
       })).render();
 
