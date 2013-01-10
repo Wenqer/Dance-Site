@@ -1,0 +1,17 @@
+<h2 class="title"><%= title %></h2>
+<a href="/" class="icon-close icon" id="close-window">x</a>
+<a href="/<%= category.alias %>" class="icon-back icon" id="back-window"><</a>
+<div class="item-body">
+	<% if (!_(image).isEmpty) { %>
+	<img src="<%= image %>" alt="<%= title %>" class="item-image">
+	<% } %>
+	<% if (introtext != "") { %>
+	<div class="item-text"><%= introtext %></div>
+	<% } %>
+	<% if (video != null) { %>
+	<iframe src="http://www.youtube.com/embed/<%= video %>?rel=0&amp;fs=1&amp;wmode=transparent" width="600" height="400" frameborder="0" allowfullscreen title="<%= title %>"></iframe>
+	<% } %>
+	<% if (fulltext != "") { %>
+	<div class="item-text"><%= fulltext %></div>
+	<% } %>
+</div>

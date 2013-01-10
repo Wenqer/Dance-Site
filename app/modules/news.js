@@ -18,7 +18,12 @@ function(app) {
   // Default Collection.
   News.Collection = Backbone.Collection.extend({
     model: News.Model,
-    url: "/index2.php?option=com_k2&view=itemlist&task=category&id=1&format=json",
+    url: "http://vanya-tanya.com/index2.php?option=com_k2&view=itemlist&task=category&id=1&format=json",
+    initialize: function() {
+      this.on("fetch", app.setLoading);
+      this.on("reset", app.clearLoading);
+    },
+
     parse: function(resp) {
       return resp.items;
     }
@@ -48,12 +53,26 @@ function(app) {
       template: "news/item",
       className: "window",
   
-      initialize: {
-        //this.collection.on("reset", this.)
+      initialize: function() {
+        this.collection.on("reset", this.render, this);
+        
+        if (this.collection.length > 0){
+          //this.render();
+          app.router.on("route:showNewsId", this.render, this);
+        }
+        //this.on(app.router.news.itemid, "change", this.render, this);
+      },
+
+      test: function() {
+        app.log(this);
       },
   
       serialize: function() {
-        //return this.model.toJSON();
+        return this.collection.get(app.router.news.itemid).toJSON();
+      },
+
+      afterRender: function() {
+        //app.log(this.collection.get(app.router.news.itemid).toJSON());
       }
   });
   // preview News

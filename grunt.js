@@ -60,8 +60,11 @@ module.exports = function(grunt) {
     // only want to load one stylesheet in index.html.
     mincss: {
       "dist/release/index.css": [
-        "assets/css/h5bp.css",
-        "assets/css/style.css"
+        // "assets/css/h5bp.css",
+        // "assets/css/style.css"
+        "vendor/h5bp/css/normalize.css",
+        "vendor/h5bp/css/main.css",
+        "app/styles/main.css"
       ]
     },
 

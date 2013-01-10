@@ -1,7 +1,9 @@
 body{
 	background-image: url(../../assets/img/bg.jpg);
 }
-
+.loading, .loading a{
+	cursor: wait;
+}
 a{
 	color: #002053;
 	font-weight: bold;
@@ -39,15 +41,30 @@ ul li a:hover{
 .window{
 	position: fixed;
 	overflow: hidden;
-	width: 816px;
+	width: 800px;
 	height: 616px;
 	background: url(../../assets/img/bg_window.png) repeat;
 	top: 50%;
 	left: 50%;
-	margin: -308px 0 0 -408px;
+	margin: -308px 0 0 -400px;
 	border: 5px solid #647fda;
 	border-radius: 5px;
+	padding: 0 15px;
 }
+.window-small{
+	position: fixed;
+	overflow: hidden;
+	width: 600px;
+	height: auto;
+	background: url(../../assets/img/bg_window.png) repeat;
+	top: 50%;
+	left: 50%;
+	margin: -250px 0 0 -300px;
+	border: 5px solid #647fda;
+	border-radius: 5px;
+	padding: 0 15px 10px 15px;
+}
+
 
 /*	8888888888888     8888888888888b     d8888888888888888b    88888888888888 .d8888b.  
 	888       888     888       8888b   d8888888       8888b   888    888    d88P  Y88b 
@@ -71,27 +88,99 @@ ul li a:hover{
 }
 
 #tv{
-	background-image: url(../../assets/img/tv.png);
+	background-image: url(../../assets/img/tv-sprite.png);
 	width: 193px;
 	height: 330px;
 	top:170px;
 	left: -3px;
 }
+#tv:hover{
+	-webkit-animation: tvplay 1s steps(6) infinite;
+	-moz-animation: tvplay 1s steps(6) infinite;
+	-ms-animation: tvplay 1s steps(6) infinite;
+	-o-animation: tvplay 1s steps(6) infinite;
+	animation: tvplay 1s steps(6) infinite;
+}
+@keyframes "tvplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -1164px 0;
+ }
+
+}
+
+@-moz-keyframes tvplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1164px 0;
+ }
+
+}
+
+@-webkit-keyframes "tvplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1164px 0;
+ }
+
+}
+
+@-ms-keyframes "tvplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1164px 0;
+ }
+
+}
+
+@-o-keyframes "tvplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1164px 0;
+ }
+
+}
+
+
 
 #door{
-	background-image: url(../../assets/img/door.png);
-	width: 216px;
+	background-image: url(../../assets/img/door-sprite.png);
+	width: 210px;
 	height: 326px;
 	top: 40px;
 	left: 40px;
 }
+#door:hover{
+	animation: doorplay 2s steps(5) infinite;
+}
+@keyframes doorplay{
+	0%{background-position: 0 0;}
+	100%{background-position: -1060px 0;}
+}
 
 #calendar{
-	background-image: url(../../assets/img/calendar.png);
-	width: 145px;
-	height: 160px;
+	background-image: url(../../assets/img/calendar-sprite.png);
+	width: 154px;
+	height: 167px;
 	top: 30px;
 	left: 370px;
+}
+#calendar:hover{
+	animation: calendarplay 1s steps(4) infinite;
+}
+@keyframes calendarplay{
+	0%{background-position: 0 0;}
+	100%{background-position: -616px 0;}
 }
 
 #table{
@@ -99,19 +188,34 @@ ul li a:hover{
 	right: 170px;
 }
 	#phone{
-		background-image: url(../../assets/img/phone.png);
-		width: 127px;
-		height: 134px;
+		background-image: url(../../assets/img/phone-sprite.png);
+		width: 105px;
+		height: 129px;
 		top: 10px;
 		right: 10px;
+		}
+	#phone:hover{
+		animation: phoneplay 1s steps(5) infinite;
+	}
+	@keyframes phoneplay{
+		0%{background-position: 0 0;}
+		100%{background-position: -530px 0;}
 	}
 
+
 	#frame{
-		background-image: url(../../assets/img/fotoframe.png);
+		background-image: url(../../assets/img/fotoframe-sprite.png);
 		width: 112px;
 		height: 132px;
 		top: 10px;
 		left: 10px;
+	}
+	#frame:hover{
+		animation: frameplay 1s steps(5) infinite;
+	}
+	@keyframes frameplay{
+		0%{background-position: 0 0;}
+		100%{background-position: -560px 0;}
 	}
 
 #portraits{
@@ -129,6 +233,8 @@ ul li a:hover{
 		perspective: 800px;
 		perspective-origin: 50% 100px;
 		*/
+	}
+	#man:hover {	
 		-webkit-transform-origin: center top;
 		-webkit-animation-name: example;
 	   -webkit-animation-duration: 2s;
@@ -153,6 +259,8 @@ ul li a:hover{
 		height: 162px;
 		top: 0px;
 		left: 130px;
+	}
+	#woman:hover{
 		-webkit-transform-origin: center top;
 		transform-origin: center top;
 		-webkit-animation-name: example;
@@ -164,20 +272,23 @@ ul li a:hover{
 	   animation-name: example;
 	   animation-duration: 2s;
 	   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-	   animation-delay: 1s;             /* 0 is the default */
+	   animation-delay: 0;             /* 0 is the default */
 	   animation-iteration-count: infinite;    /* 1 is the default */
 	   animation-direction: alternate;  /* normal is the default */
 	}
 	@-webkit-keyframes example {
-		0% {-webkit-transform:rotateZ(10deg);}
-		100% {-webkit-transform:rotateZ(-10deg);}
+		0% {transform:rotateZ(0deg);}
+		50% {transform:rotateZ(10deg);}
+		100% {transform:rotateZ(-10deg);}
 	}
 	@-o-keyframes example {
-		0% {-o-transform:rotateZ(10deg);}
-		100% {-o-transform:rotateZ(-10deg);}
+		0% {transform:rotateZ(0deg);}
+		50% {transform:rotateZ(10deg);}
+		100% {transform:rotateZ(-10deg);}
 	}
 	@keyframes example {
-		0% {transform:rotateZ(10deg);}
+		0% {transform:rotateZ(0deg);}
+		50% {transform:rotateZ(10deg);}
 		100% {transform:rotateZ(-10deg);}
 	}
 
@@ -186,11 +297,18 @@ ul li a:hover{
 	right: 0;
 }
 	#player{
-		background-image: url(../../assets/img/player.png);
-		width: 224px;
+		background-image: url(../../assets/img/player-sprite.png);
+		width: 221px;
 		height: 244px;
 		bottom: 0;
 		right: 0;
+		}
+	#main-news:hover #player{
+		animation: playerplay 1s steps(4) infinite;
+	}
+	@keyframes playerplay{
+		0%{ background-position: 0 0;}
+		100% {background-position: -892px 0;}
 	}
 	#news-player{
 		background-image: url(../../assets/img/news-window.png);
@@ -250,15 +368,14 @@ ul li a:hover{
 	                                                    */
 .items{
 	overflow-y: scroll;
-	height: 540px;
-	padding: 10px 20px;
+	height: 565px;
+/*	padding: 10px 20px;*/
 }
 	.title{
 		color: #2053c9;
 		display: block;
 		text-align: center;
-		
-		margin: 0;
+		margin: 5px 30px 10px 40px;
 	}
 	.date{
 		color: #2053c9;
@@ -275,4 +392,45 @@ ul li a:hover{
 }
 .items .title{
 	text-align: left;
+	margin: 0;
+}
+
+.icon{
+	position: absolute;
+	text-indent: -9999px;
+}
+.icon-back{
+	background: url(../../assets/img/back.png) no-repeat;
+	width: 49px;
+	height: 37px;
+	top: 5px;
+	left: 5px;
+}
+.icon-close{
+	background: url(../../assets/img/close.png) no-repeat;
+	width: 35px;
+	height: 31px;
+	top: 5px;
+	right: 5px;
+}
+
+.preview-video{
+	display: inline-block;
+	padding: 4px;
+	margin: 4px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #525252;
+	width: 240px;
+	border-radius: 3px;
+	vertical-align: top;
+	box-shadow: 3px 3px 6px #000;
+	background-color: #fff;
+}
+	.preview-video:hover{
+		border-color: #647FDA;
+	}
+
+.preview-video img{
+	max-width: 100%;
 }
