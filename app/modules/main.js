@@ -14,7 +14,10 @@ function(app) {
 
   // Default Model.
   Main.Model = Backbone.Model.extend({
-  
+    initialize: function() {
+      var now = new Date().getMonthName();
+      this.set("month", now);
+    }
   });
 
   // Default Collection.
@@ -25,7 +28,17 @@ function(app) {
   // Default View.
   Main.Views.Index = Backbone.View.extend({
     template: "main",
-    className: "main"
+    className: "main",
+
+    serialize: function() {
+      return this.model.toJSON();
+    },
+
+    afterRender: function() {
+      var now = new Date().getMonthName();
+      app.log(now);
+      $("#month").text(now);
+    }
   });
 
 

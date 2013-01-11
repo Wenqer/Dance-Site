@@ -1,5 +1,6 @@
 body{
 	background-image: url(../../assets/img/bg.jpg);
+	font-size: 14px;
 }
 .loading, .loading a{
 	cursor: wait;
@@ -18,7 +19,7 @@ ul li:before {
 	content: '- ';
 }
 ul li a{
-	color: #ce3d11;
+	color: #A3282C;
 	text-decoration: none;
 	padding-left: 2px;
 }
@@ -60,6 +61,19 @@ ul li a:hover{
 	top: 50%;
 	left: 50%;
 	margin: -250px 0 0 -300px;
+	border: 5px solid #647fda;
+	border-radius: 5px;
+	padding: 0 15px 5px 15px;
+}
+.window-sized{
+	position: fixed;
+	overflow: hidden;
+	width: 800px;
+	height: auto;
+	background: url(../../assets/img/bg_window.png) repeat;
+	top: 50%;
+	left: 50%;
+	margin: -308px 0 0 -400px;
 	border: 5px solid #647fda;
 	border-radius: 5px;
 	padding: 0 15px 10px 15px;
@@ -154,19 +168,70 @@ ul li a:hover{
 
 
 #door{
-	background-image: url(../../assets/img/door-sprite.png);
-	width: 210px;
+	background-image: url(../../assets/img/door.png);
+	width: 216px;
 	height: 326px;
 	top: 40px;
 	left: 40px;
 }
-#door:hover{
-	animation: doorplay 2s steps(5) infinite;
+/*#door:hover{
+	-webkit-animation: doorplay 2s steps(5) infinite;
+-moz-animation: doorplay 2s steps(5) infinite;
+-ms-animation: doorplay 2s steps(5) infinite;
+-o-animation: doorplay 2s steps(5) infinite;
+animation: doorplay 2s steps(5) infinite;
+
+}*/
+@keyframes "doorplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -1060px 0;
+ }
+
 }
-@keyframes doorplay{
-	0%{background-position: 0 0;}
-	100%{background-position: -1060px 0;}
+
+@-moz-keyframes doorplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1060px 0;
+ }
+
 }
+
+@-webkit-keyframes "doorplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1060px 0;
+ }
+
+}
+
+@-ms-keyframes "doorplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1060px 0;
+ }
+
+}
+
+@-o-keyframes "doorplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -1060px 0;
+ }
+
+}
+
 
 #calendar{
 	background-image: url(../../assets/img/calendar-sprite.png);
@@ -174,14 +239,78 @@ ul li a:hover{
 	height: 167px;
 	top: 30px;
 	left: 370px;
+	text-decoration: none;
 }
+	#month{
+		display: block;
+    	font-size: 12px;
+    	position: relative;
+    	text-align: center;
+    	top: 40px;
+    	width: 100%;
+    	color: #A3282C;
+    	text-transform: uppercase;
+    	font-family: "comic sans ms";
+    	transform: rotateZ(2deg);
+	}
 #calendar:hover{
-	animation: calendarplay 1s steps(4) infinite;
+	-webkit-animation: calendarplay 1s steps(4) infinite;
+-moz-animation: calendarplay 1s steps(4) infinite;
+-ms-animation: calendarplay 1s steps(4) infinite;
+-o-animation: calendarplay 1s steps(4) infinite;
+animation: calendarplay 1s steps(4) infinite;
+
 }
-@keyframes calendarplay{
-	0%{background-position: 0 0;}
-	100%{background-position: -616px 0;}
+@keyframes "calendarplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -616px 0;
+ }
+
 }
+
+@-moz-keyframes calendarplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -616px 0;
+ }
+
+}
+
+@-webkit-keyframes "calendarplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -616px 0;
+ }
+
+}
+
+@-ms-keyframes "calendarplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -616px 0;
+ }
+
+}
+
+@-o-keyframes "calendarplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -616px 0;
+ }
+
+}
+
 
 #table{
 	top: 220px;
@@ -195,12 +324,63 @@ ul li a:hover{
 		right: 10px;
 		}
 	#phone:hover{
-		animation: phoneplay 1s steps(5) infinite;
+		-webkit-animation: phoneplay 1s steps(5) infinite;
+-moz-animation: phoneplay 1s steps(5) infinite;
+-ms-animation: phoneplay 1s steps(5) infinite;
+-o-animation: phoneplay 1s steps(5) infinite;
+animation: phoneplay 1s steps(5) infinite;
+
 	}
-	@keyframes phoneplay{
-		0%{background-position: 0 0;}
-		100%{background-position: -530px 0;}
-	}
+	@keyframes "phoneplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -530px 0;
+ }
+
+}
+
+@-moz-keyframes phoneplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -530px 0;
+ }
+
+}
+
+@-webkit-keyframes "phoneplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -530px 0;
+ }
+
+}
+
+@-ms-keyframes "phoneplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -530px 0;
+ }
+
+}
+
+@-o-keyframes "phoneplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -530px 0;
+ }
+
+}
+
 
 
 	#frame{
@@ -211,12 +391,63 @@ ul li a:hover{
 		left: 10px;
 	}
 	#frame:hover{
-		animation: frameplay 1s steps(5) infinite;
+		-webkit-animation: frameplay 1s steps(5) infinite;
+-moz-animation: frameplay 1s steps(5) infinite;
+-ms-animation: frameplay 1s steps(5) infinite;
+-o-animation: frameplay 1s steps(5) infinite;
+animation: frameplay 1s steps(5) infinite;
+
 	}
-	@keyframes frameplay{
-		0%{background-position: 0 0;}
-		100%{background-position: -560px 0;}
-	}
+	@keyframes "frameplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -560px 0;
+ }
+
+}
+
+@-moz-keyframes frameplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -560px 0;
+ }
+
+}
+
+@-webkit-keyframes "frameplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -560px 0;
+ }
+
+}
+
+@-ms-keyframes "frameplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -560px 0;
+ }
+
+}
+
+@-o-keyframes "frameplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -560px 0;
+ }
+
+}
+
 
 #portraits{
 	top: 30px;
@@ -227,28 +458,47 @@ ul li a:hover{
 		background-image: url(../../assets/img/man.png);
 		width: 139px;
 		height: 162px;
-		top: 0px;
-		left: 0px;
+		top: 0;
+		left: 0;
 		/*transition:all 2s ease-in-out;
 		perspective: 800px;
 		perspective-origin: 50% 100px;
 		*/
+		transition: all 0.5s linear;
+		-webkit-transform-origin: center top;
+		-moz-transform-origin: center top;
+		-o-transform-origin: center top;
+		-ms-transform-origin: center top;
+		transform-origin: center top;
 	}
 	#man:hover {	
-		-webkit-transform-origin: center top;
 		-webkit-animation-name: example;
-	   -webkit-animation-duration: 2s;
-	   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-	   -webkit-animation-delay: 0;             /* 0 is the default */
-	   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
-	   -webkit-animation-direction: alternate;  /* normal is the default */
-	   	transform-origin: center top;
-	    animation-name: example;
-	   animation-duration: 2s;
-	   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-	   animation-delay: 0;             /* 0 is the default */
-	   animation-iteration-count: infinite;    /* 1 is the default */
-	   animation-direction: alternate;  /* normal is the default */
+		-moz-animation-name: example;
+		-ms-animation-name: example;
+		-o-animation-name: example;
+		animation-name: example;
+		-webkit-animation-duration: 2s;
+		animation-duration: 2s;
+		-webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-moz-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-ms-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-o-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		/* ease is the default */
+		-webkit-animation-delay: 0;
+		-moz-animation-delay: 0;
+		-ms-animation-delay: 0;
+		-o-animation-delay: 0;
+		animation-delay: 0;
+		/* 0 is the default */
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+		-ms-animation-iteration-count: infinite;
+		-o-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		/* 1 is the default */
+		animation-direction: alternate;
+		/* normal is the default */
 	}
 	#man:hover{
 		/*transform:rotateZ(20deg);*/
@@ -257,40 +507,133 @@ ul li a:hover{
 		background-image: url(../../assets/img/woman.png);
 		width: 139px;
 		height: 162px;
-		top: 0px;
+		top: 0;
 		left: 130px;
+		transition: all 0.5s linear;
+		-webkit-transform-origin: center top;
+		-moz-transform-origin: center top;
+		-o-transform-origin: center top;
+		-ms-transform-origin: center top;
+		transform-origin: center top;
 	}
 	#woman:hover{
-		-webkit-transform-origin: center top;
-		transform-origin: center top;
 		-webkit-animation-name: example;
-	   -webkit-animation-duration: 2s;
-	   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-	   -webkit-animation-delay: 1s;             /* 0 is the default */
-	   -webkit-animation-iteration-count: infinite;    /* 1 is the default */
-	   -webkit-animation-direction: alternate;  /* normal is the default */
-	   animation-name: example;
-	   animation-duration: 2s;
-	   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); /* ease is the default */
-	   animation-delay: 0;             /* 0 is the default */
-	   animation-iteration-count: infinite;    /* 1 is the default */
-	   animation-direction: alternate;  /* normal is the default */
+		-moz-animation-name: example;
+		-ms-animation-name: example;
+		-o-animation-name: example;
+		animation-name: example;
+		-webkit-animation-duration: 2s;
+		animation-duration: 2s;
+		-webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-moz-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-ms-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		-o-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+		/* ease is the default */
+		-webkit-animation-delay: 0;
+		-moz-animation-delay: 0;
+		-ms-animation-delay: 0;
+		-o-animation-delay: 0;
+		animation-delay: 0;
+		/* 0 is the default */
+		-webkit-animation-iteration-count: infinite;
+		-moz-animation-iteration-count: infinite;
+		-ms-animation-iteration-count: infinite;
+		-o-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		/* 1 is the default */
+		animation-direction: alternate;
+		/* normal is the default */
 	}
-	@-webkit-keyframes example {
-		0% {transform:rotateZ(0deg);}
-		50% {transform:rotateZ(10deg);}
-		100% {transform:rotateZ(-10deg);}
-	}
-	@-o-keyframes example {
-		0% {transform:rotateZ(0deg);}
-		50% {transform:rotateZ(10deg);}
-		100% {transform:rotateZ(-10deg);}
-	}
-	@keyframes example {
-		0% {transform:rotateZ(0deg);}
-		50% {transform:rotateZ(10deg);}
-		100% {transform:rotateZ(-10deg);}
-	}
+	@keyframes "example" {
+ 0% {
+    -webkit-transform: rotateZ(0deg);
+   	-moz-transform: rotateZ(0deg);
+   	-o-transform: rotateZ(0deg);
+   	-ms-transform: rotateZ(0deg);
+   	transform: rotateZ(0deg);
+ }
+ 50% {
+    -webkit-transform: rotateZ(10deg);
+   	-moz-transform: rotateZ(10deg);
+   	-o-transform: rotateZ(10deg);
+   	-ms-transform: rotateZ(10deg);
+   	transform: rotateZ(10deg);
+ }
+ 100% {
+    -webkit-transform: rotateZ(-10deg);
+   	-moz-transform: rotateZ(-10deg);
+   	-o-transform: rotateZ(-10deg);
+   	-ms-transform: rotateZ(-10deg);
+   	transform: rotateZ(-10deg);
+ }
+
+}
+
+@-moz-keyframes example {
+ 0% {
+   -moz-transform: rotateZ(0deg);
+   transform: rotateZ(0deg);
+ }
+ 50% {
+   -moz-transform: rotateZ(10deg);
+   transform: rotateZ(10deg);
+ }
+ 100% {
+   -moz-transform: rotateZ(-10deg);
+   transform: rotateZ(-10deg);
+ }
+
+}
+
+@-webkit-keyframes example {
+ 0% {
+   -webkit-transform: rotateZ(0deg);
+   transform: rotateZ(0deg);
+ }
+ 50% {
+   -webkit-transform: rotateZ(10deg);
+   transform: rotateZ(10deg);
+ }
+ 100% {
+   -webkit-transform: rotateZ(-10deg);
+   transform: rotateZ(-10deg);
+ }
+
+}
+
+@-ms-keyframes "example" {
+ 0% {
+   -ms-transform: rotateZ(0deg);
+   transform: rotateZ(0deg);
+ }
+ 50% {
+   -ms-transform: rotateZ(10deg);
+   transform: rotateZ(10deg);
+ }
+ 100% {
+   -ms-transform: rotateZ(-10deg);
+   transform: rotateZ(-10deg);
+ }
+
+}
+
+@-o-keyframes "example" {
+ 0% {
+   -o-transform: rotateZ(0deg);
+   transform: rotateZ(0deg);
+ }
+ 50% {
+   -o-transform: rotateZ(10deg);
+   transform: rotateZ(10deg);
+ }
+ 100% {
+   -o-transform: rotateZ(-10deg);
+   transform: rotateZ(-10deg);
+ }
+
+}
+
 
 #main-news{
 	bottom: 35px;
@@ -304,12 +647,62 @@ ul li a:hover{
 		right: 0;
 		}
 	#main-news:hover #player{
+		-webkit-animation: playerplay 1s steps(4) infinite;
+		-moz-animation: playerplay 1s steps(4) infinite;
+		-ms-animation: playerplay 1s steps(4) infinite;
+		-o-animation: playerplay 1s steps(4) infinite;
 		animation: playerplay 1s steps(4) infinite;
 	}
-	@keyframes playerplay{
-		0%{ background-position: 0 0;}
-		100% {background-position: -892px 0;}
-	}
+	@keyframes "playerplay" {
+ 0% {
+    background-position: 0 0;
+ }
+ 100% {
+    background-position: -892px 0;
+ }
+
+}
+
+@-moz-keyframes playerplay {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -892px 0;
+ }
+
+}
+
+@-webkit-keyframes "playerplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -892px 0;
+ }
+
+}
+
+@-ms-keyframes "playerplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -892px 0;
+ }
+
+}
+
+@-o-keyframes "playerplay" {
+ 0% {
+   background-position: 0 0;
+ }
+ 100% {
+   background-position: -892px 0;
+ }
+
+}
+
 	#news-player{
 		background-image: url(../../assets/img/news-window.png);
 		width: 247px;
@@ -331,19 +724,27 @@ ul li a:hover{
 }
 
 	#ru{
-		background-image: url(../../assets/img/ru.png);
+		background-image: url(../../assets/img/flags.png);
 		width: 76px;
-		height: 53px;
+		height: 51px;
 		top: 0;
 		left: 10px;
+		background-position: -88px -51px;
+	}
+	#ru:hover, #ru.active{
+		background-position: -88px 0;
 	}
 
 	#eu{
-		background-image: url(../../assets/img/eu.png);
+		background-image: url(../../assets/img/flags.png);
 		width: 78px;
-		height: 53px;
+		height: 51px;
 		top: 0px;
 		left: 100px;
+		background-position: 0 -51px;
+	}
+	#eu:hover, #eu.active{
+		background-position: 0 0;
 	}
 
 #logo{
@@ -366,8 +767,12 @@ ul li a:hover{
 	                                                    
 	                                                    
 	                                                    */
+h2{
+	font-size: 18px;
+}
 .items{
-	overflow-y: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 	height: 565px;
 /*	padding: 10px 20px;*/
 }
@@ -394,7 +799,10 @@ ul li a:hover{
 	text-align: left;
 	margin: 0;
 }
-
+.item-image{
+	float: left;
+	margin: 0 10px 10px 0;
+}
 .icon{
 	position: absolute;
 	text-indent: -9999px;
@@ -433,4 +841,44 @@ ul li a:hover{
 
 .preview-video img{
 	max-width: 100%;
+}
+
+.preview-image{
+	display: inline-block;
+	width: 180px;
+	height: 130px;
+	margin: 4px;
+	position: relative;
+}
+.preview-image a{
+	display: block;
+	width: 90%;
+	padding: 4px;
+	position: absolute;
+	border-radius: 3px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #525252;
+	box-shadow: 3px 3px 6px #000;
+	background-color: #fff;
+	transition: all 0.5s linear;
+}
+.preview-image:nth-of-type(4n+4) a{
+	right: 0;
+}
+	.preview-image a:hover{
+		border-color: #647FDA;
+		width: 300px;
+		z-index: 2;
+		padding: 6px; 
+	}
+
+.preview-image img{
+	max-width: 100%;
+	vertical-align: top;
+}
+.item-body{
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 560px;
 }

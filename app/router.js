@@ -3,10 +3,8 @@ define([
   "app",
 
   // Modules.
-  //"modules/example",
   "modules/main",
-  "modules/article"//,
-  //"modules/news"
+  "modules/article"
 ],
 
 function(app, Main, Article) {
@@ -15,23 +13,18 @@ function(app, Main, Article) {
   var Router = Backbone.Router.extend({
     initialize: function() {
       var collections = {
-        //news: new News.Collection(),
-        articles: new Article.Collection(),
-        option: new Main.Model()
+        articles: new Article.Collection()
       };
 
       _(this).extend(collections); //разширяем роутер колекциями
 
-      //this.news.fetch();
 
       this.promise = $.when(this.articles.fetch());
-      // app.log(this.promise);
-      // this.promise.done(function() {app.log("test!");});
-      // this.promise.done(function() {app.log(this.promise);});
 
       app.
       useLayout("main").
       setView(new Main.Views.Index({
+        model: new Main.Model(),
         views: {
           "#news-player": new Article.Views.Window({
             collection: this.articles
@@ -43,113 +36,154 @@ function(app, Main, Article) {
       this.windowLayout = new Backbone.Layout({
         el: "#window"
       });
+
+      this.lateRenderItem = function(id, options) {
+        var self = this;
+        return this.promise.done(function() {
+          var model = {model: self.articles.get(id)};
+          _(options).extend(model);
+          self.windowLayout.setView(new Article.Views.Item(options)).render();
+        });
+      };
+
+      this.renderItems = function(id, options) {
+        var  self = this;
+        return this.promise.done(function() {
+        var defaults = {
+            catid: id,
+            collection: self.articles
+          };
+          _(options).extend(defaults);
+          app.log(options);
+          self.windowLayout.setView(new Article.Views.All(options)).render();
+        });
+      };
     },
 
     routes: {
       "": "index",
       "vanya": "showVanya",
       "tanya": "showTanya",
+      "contacts": "showContacts",
 
       "news": "showNews",
       "news/:id": "showNewsId",
 
       "video": "showVideo",
       "video/:id": "showVideoId",
-      
-      "help": "help"
+
+      "gallery": "showGallery",
+      "gallery/:id": "showGalleryId"
     },
 
-    //options: {},
-
     index: function() {
-      // Create a layout and associate it with the #main div.
-      // var layout = new Backbone.Layout({
-      //   el: "#main"
-      // });
-
-      // Insert the tutorial into the layout.
-      // layout.insertView(new Example.Views.Tutorial());
+      //cleaning previous views
       $("#window").empty();
     },
 
     showVanya: function() {
-      this.option.set({"itemid": 2});
-      this.windowLayout.setView(new Article.Views.Item({
-        collection: this.articles,
-        template: "article/item"
-      }));
-      var self = this;
-      this.promise.done(function() {
-          self.windowLayout.render();
-      });
+      this.lateRenderItem(
+        2,
+        {
+          template: "article/item"
+        }
+      );
     },
 
     showTanya: function() {
-      this.option.set({"itemid": 3});
-      this.windowLayout.setView(new Article.Views.Item({
-        collection: this.articles,
-        template: "article/item"
-      }));
-      var self = this;
-      this.promise.done(function() {
-          self.windowLayout.render();
-      });
+      this.lateRenderItem(
+        3,
+        {
+          template: "article/item"
+        }
+      );
+    },
+
+    showContacts: function() {
+      this.lateRenderItem(
+        17,
+        {
+          template: "article/item"
+        }
+      );
     },
 
     showNews: function() {
-      this.option.set({"catid": "1"});
-      this.windowLayout.setView(new Article.Views.All({
-        collection: this.articles,
-        template: "article/all",
-        itemTemplate: "article/preview"
-      })).render();
+      // this.windowLayout.setView(new Article.Views.All({
+      //   collection: this.articles,
+      //   template: "article/all",
+      //   sectionName: "Новости",
+      //   itemTemplate: "article/preview",
+      //   itemClass: "preview-item",
+      //   catid: "1"
+      // })).render();
+      this.renderItems(
+        "1",
+        {
+          sectionName: "Новости",
+          itemTemplate: "article/preview",
+          itemClass: "preview-item"
+        }
+      );
     },
 
     showNewsId: function(id) {
-      //app.log(this.news.get(id));
-      this.option.set("itemid",id);
-      this.windowLayout.setView(new Article.Views.Item({
-        collection: this.articles,
-        template: "article/item"
-      }));
-      var self = this;
-      this.promise.done(function() {
-          self.windowLayout.render();
-      });
-
+      // var self = this;
+      // this.promise.done(function() {
+      //   self.windowLayout.setView(new Article.Views.Item({
+      //     model: self.articles.get(id),
+      //     template: "article/item"
+      //   })).render();
+      // });
+      this.lateRenderItem(
+        id,
+        {
+          template: "article/item"
+        }
+      );
     },
 
     showVideo: function() {
-      this.option.set({"catid": "3"});
-      this.windowLayout.setView(new Article.Views.All({
-        collection: this.articles,
-        template: "article/videos",
-        itemTemplate: "article/videoItem",
-        itemClass: "preview-video"
-      })).render();
+      this.renderItems(
+        "3",
+        {
+          sectionName: "Видео",
+          itemTemplate: "article/videoItem",
+          itemClass: "preview-video"
+        }
+      );
     },
 
     showVideoId: function(id) {
-      //app.log(this.news.get(id));
-      this.option.set("itemid",id);
-      this.windowLayout.setView(new Article.Views.Item({
-        collection: this.articles,
-        template: "article/item",
-        className: "window-small"
-      }));
-      var self = this;
-      this.promise.done(function() {
-          self.windowLayout.render();
-      });
+      this.lateRenderItem(
+        id,
+        {
+          template: "article/item",
+          className: "window-small"
+        }
+      );
     },
 
-    admin: function() {
-      window.location = "http://vanya-tanya.com/administrator/index.php";
-    }
+    showGallery: function() {
+      this.renderItems(
+        "4",
+        {
+          sectionName: "Галерея",
+          itemTemplate: "article/imageItem",
+          itemClass: "preview-image"
+        }
+      );
+    },
 
-    // help: function() {
-    //   app.useLayout("main").setView(new Example.Views.Tutorial()).render();
-    // }
+    showGalleryId: function(id) {
+      this.lateRenderItem(
+        id,
+        {
+          template: "article/imageBox",
+          className: "window-sized"
+        }
+      );
+    }
   });
 
   return Router;

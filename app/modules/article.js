@@ -39,28 +39,34 @@ function(app) {
 
   // All Article View.
   Article.Views.All = Backbone.View.extend({
-    //template: "article/all",
+    template: "article/all",
     className: "window",
 
     initialize: function() {
       this.collection.on("reset", this.render, this);
     },
 
+    serialize: function() {
+      return {sectionName: this.options.sectionName};
+    },
+
     beforeRender: function() {
-      var collection = this.collection;
+      var collection = this.collection,
+          catid = this.options.catid;
 
       //если указан параметр категории, то фильтруем выдачу
-      if(!_(app.router.option.get("catid")).isUndefined()){
+      if(!_(catid).isUndefined()){
         collection = new Backbone.Collection(
           this.collection.where({
-            "catid":app.router.option.get("catid")
+            "catid": catid
           })
         );
       }
 
       collection.each(function(item){
-        this.insertView("section", new Article.Views.Preview({
+        this.insertView("section", new Article.Views.Item({
           model: item,
+          tagName: "article",
           template: this.options.itemTemplate,
           className: this.options.itemClass
         }));
@@ -72,45 +78,15 @@ function(app) {
   Article.Views.Item = Backbone.View.extend({
       // template: "article/item",
       className: "window",
-  
-      initialize: function() {
-        this.collection.on("reset", this.render, this);
-        
-        //if (this.collection.length > 0){
-          //app.router.option.on("change", function() {return app.log(this);});
-          // app.router.on("route:showNewsId", this.render, this);
-          //this.render();
-        //}
-        // app.log(this.template);
-      },
 
-      serialize: function() {
-        // var video = this.collection.get(app.router.option.get("itemid")).toJSON().video,
-        //     videoId = video.replace(/\{\/?youtube\}/g, "");
-        //app.log(videoId);
-        return this.collection.get(app.router.option.get("itemid")).toJSON();
-      }
-  });
-  // preview Article
-  Article.Views.Preview = Backbone.View.extend({
+      // initialize: function() {
+      //     this.model.on('change', this.render, this);
+      // },
 
-      //template: "article/preview",
-
-      tagName: "article",
-
-      className: "preview-item",
-  
       serialize: function() {
         return this.model.toJSON();
-      },
-  
-      initialize: function() {
-          this.model.on('change', this.render, this);
-          //app.log(this.model.toJSON());
-          //this.render();
       }
   });
-
 
   // Article Window View
   Article.Views.Window = Backbone.View.extend({
@@ -125,26 +101,13 @@ function(app) {
       beforeRender: function() {
         var collection = new Backbone.Collection(_(this.collection.toJSON()).chain().where({"catid":"1"}).first(3).value());
           collection.each(function(item) {
-            this.insertView("ul", new Article.Views.WindowItem({
-              model: item
+            this.insertView("ul", new Article.Views.Item({
+              model: item,
+              template: "article/windowItem",
+              tagName: "li",
+              className: "window-item"
             }));
           }, this);
-      }
-  });
-
-  // Article Window Item View
-  Article.Views.WindowItem = Backbone.View.extend({
-    
-      template: "article/windowItem",
-
-      tagName: "li",
-  
-      initialize: function() {
-          this.model.on('change', this.render, this);
-      },
-
-      serialize: function() {
-        return this.model.toJSON();
       }
   });
 

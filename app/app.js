@@ -2,6 +2,12 @@ define([
   "backbone.layoutmanager"
 ], function() {
 
+  //Patch Date to get month name
+  Date.prototype.getMonthName = function() {
+    var monthNames = [ "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December" ];
+    return monthNames[this.getMonth()];
+  };
   // Patch collection fetching to emit a `fetch` event.
   Backbone.Collection.prototype.fetch = function() {
     var fetch = Backbone.Collection.prototype.fetch;
