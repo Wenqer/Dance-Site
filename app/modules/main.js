@@ -35,9 +35,9 @@ function(app) {
     },
 
     afterRender: function() {
-      var now = new Date().getMonthName();
-      app.log(now);
-      $("#month").text(now);
+      //var now = new Date().getMonthName();
+      //app.log(now);
+      //$("#month").text(now);
     }
   });
 

@@ -1,4 +1,4 @@
-<div class="date"><%= created %></div>
+<div class="date"><%= moment(created).format("DD.MM.YY") %></div>
 <div class="preview-body">
 	<h3 class="title"><a href="/<%= category.alias %>/<%= id %>"><%= title %></a></h3>
 	<div class="item-text"><%= introtext %></div>

@@ -3,11 +3,16 @@ require([
   "app",
 
   // Main Router.
-  "router"
+  "router",
+  "moment",
+  "rudate",
+  "lightbox"
 ],
 
-function(app, Router) {
+function(app, Router, moment, ru) {
 
+  //set lang
+  moment.lang("ru");
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.
   app.router = new Router();

@@ -6,11 +6,18 @@ require.config({
   deps: ["../vendor/jam/require.config", "main"],
 
   paths: {
-    // Put paths here.
+    moment: "../vendor/js/libs/moment",
+    rudate: "../vendor/js/libs/lang/ru",
+    lightbox: "../vendor/js/lightbox"
   },
 
   shim: {
-    // Put shims here.
+    lightbox: {
+      deps: ['jquery']
+    },
+    rudate: {
+      deps: ['moment']
+    }
   }
 
 });

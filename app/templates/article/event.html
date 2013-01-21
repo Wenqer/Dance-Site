@@ -1,0 +1,12 @@
+<% var 	sdate = _.chain(extra_fields).where({alias : "startdate"}).first().value().value,
+ 		edate = _.chain(extra_fields).where({alias : "enddate"}).first().value(); %>
+<div class="date event-date">
+	<%= moment(sdate, "dddd, DD MMMM YYYY").format("DD.MM.YY") %> 
+	<% if (!_(edate).isUndefined()){ %>
+		- <%= moment(edate.value, "dddd, DD MMMM YYYY").format("DD.MM.YY") %>
+	<% } %>
+</div>
+<div class="preview-body">
+	<h3 class="title"><%= title %></h3>
+	<div class="item-text"><%= introtext %></div>
+</div>

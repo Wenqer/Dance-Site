@@ -52,15 +52,49 @@ function(app) {
 
     beforeRender: function() {
       var collection = this.collection,
+          lang = this.options.lang,
           catid = this.options.catid;
 
+      //фильтруем язык
+      if (!_(lang).isUndefined()){
+        if (lang == "ru")
+          lang = "ru-RU";
+        else
+          lang = "en-GB";
+        collection = new Backbone.Collection(
+          collection.where({
+            "language": lang
+          })
+        ).
+        add(
+          collection.where({
+            "language": "*"
+          })
+        );
+      }
       //если указан параметр категории, то фильтруем выдачу
       if(!_(catid).isUndefined()){
         collection = new Backbone.Collection(
-          this.collection.where({
+          collection.where({
             "catid": catid
           })
         );
+
+        var childs = new Backbone.Collection(this.collection.filter(function(model) {
+          var cat = model.get("category");
+          return cat.parent == catid;
+        }));
+      }
+
+      if (!_(childs).isUndefined()){
+        childs.each(function(item) {
+          this.insertView("section", new Article.Views.Item({
+            model: item,
+            tagName: "article",
+            template: this.options.itemParentTemplate,
+            className: this.options.itemClass
+          }));
+        }, this);
       }
 
       collection.each(function(item){

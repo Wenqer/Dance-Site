@@ -37,8 +37,15 @@ function(app, Main, Article) {
         el: "#window"
       });
 
+      this.fadeWindow = function() {
+        if (this.windowLayout.$el.is(":not(.fade)")){
+          this.windowLayout.$el.addClass("fade");
+        }
+      };
+
       this.lateRenderItem = function(id, options) {
         var self = this;
+        this.fadeWindow();
         return this.promise.done(function() {
           var model = {model: self.articles.get(id)};
           _(options).extend(model);
@@ -47,14 +54,14 @@ function(app, Main, Article) {
       };
 
       this.renderItems = function(id, options) {
-        var  self = this;
+        var self = this;
+        this.fadeWindow();
         return this.promise.done(function() {
         var defaults = {
             catid: id,
             collection: self.articles
           };
           _(options).extend(defaults);
-          app.log(options);
           self.windowLayout.setView(new Article.Views.All(options)).render();
         });
       };
@@ -62,6 +69,11 @@ function(app, Main, Article) {
 
     routes: {
       "": "index",
+      "calendar": "showEvents",
+
+      ":lang/calendar": "showEventsL",
+
+      "about-us": "showAbout",
       "vanya": "showVanya",
       "tanya": "showTanya",
       "contacts": "showContacts",
@@ -78,7 +90,8 @@ function(app, Main, Article) {
 
     index: function() {
       //cleaning previous views
-      $("#window").empty();
+      this.windowLayout.$el.empty();
+      this.windowLayout.$el.removeClass("fade");
     },
 
     showVanya: function() {
@@ -93,6 +106,15 @@ function(app, Main, Article) {
     showTanya: function() {
       this.lateRenderItem(
         3,
+        {
+          template: "article/item"
+        }
+      );
+    },
+
+    showAbout: function() {
+      this.lateRenderItem(
+        18,
         {
           template: "article/item"
         }
@@ -170,6 +192,7 @@ function(app, Main, Article) {
         {
           sectionName: "Галерея",
           itemTemplate: "article/imageItem",
+          itemParentTemplate: "article/imageParentItem",
           itemClass: "preview-image"
         }
       );
@@ -181,6 +204,29 @@ function(app, Main, Article) {
         {
           template: "article/imageBox",
           className: "window-sized"
+        }
+      );
+    },
+
+    showEvents: function() {
+      this.renderItems(
+        "5",
+        {
+          sectionName: "Календарь",
+          itemTemplate: "article/event",
+          itemClass: "preview-item"
+        }
+      );
+    },
+
+    showEventsL: function(lang) {
+      this.renderItems(
+        "5",
+        {
+          sectionName: "Календарь",
+          itemTemplate: "article/event",
+          itemClass: "preview-item",
+          lang: lang
         }
       );
     }
